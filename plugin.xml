@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-config-helper" version="0.1.0">
+  <name>Config.xml Helper</name>
+  <preference name="TEMPLATE" default="config.tpl.xml" />
+  <preference name="DEV_SERVER" default="http://${host}:8080" />
+  <preference name="INDEX" default="index.html" />
+  <description>config.xml helper for cordova development</description>
+  <license>MIT</license>
+  <hook src="dist/index.js" type="before_prepare" />
+</plugin>
