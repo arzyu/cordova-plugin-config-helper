@@ -18,7 +18,8 @@
     "@types/ip": "^1.1.0",
     "@types/node": "^12.7.4",
     "es6-template-strings": "^2.0.1",
-    "ip": "^1.1.5"
+    "ip": "^1.1.5",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "ts-node": "^8.3.0",
