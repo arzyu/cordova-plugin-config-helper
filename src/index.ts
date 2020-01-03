@@ -2,14 +2,17 @@ import { resolve } from "path";
 import { readFileSync, writeFileSync } from "fs";
 
 import { js2xml, xml2js, ElementCompact } from "xml-js";
-import render from "es6-template-strings"
+import env from "dotenv";
 import ip from "ip";
 import { getJson } from "@arzyu/get-json";
 
 export = ({ opts }: any) => {
+  env.config();
+
   type Config = {
     TEMPLATE: string;
-    DEV_SERVER: string;
+    DEV_HOST: string;
+    DEV_PORT: string;
     INDEX: string;
   };
 
@@ -19,9 +22,8 @@ export = ({ opts }: any) => {
   try {
     const pkgInfo = getJson(`${projectRoot}/package.json`);
     const config: Config = pkgInfo.cordova.plugins[pluginId];
-    const url = process.env.NODE_ENV === "development"
-      ? render(`${config["DEV_SERVER"]}/${config["INDEX"]}`, { host: ip.address() })
-      : config["INDEX"];
+    const host = config["DEV_HOST"] || process.env.DEV_HOST || ip.address();
+    const url = `http://${host}:${config["DEV_PORT"]}/${config["INDEX"]}`;
 
     const template = readFileSync(resolve(projectRoot, config.TEMPLATE), { encoding: "utf8" });
     const xmlObj: ElementCompact = xml2js(template, { compact: true });

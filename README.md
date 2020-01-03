@@ -29,7 +29,8 @@ cordova plugin add cordova-plugin-config-helper
     "plugins": {
       "cordova-plugin-config-helper": {
         "TEMPLATE": "config.tpl.xml",
-        "DEV_SERVER": "http://${host}:8080",
+        "DEV_HOST": "",
+        "DEV_PORT": "3000",
         "INDEX": "index.html"
       }
     }
