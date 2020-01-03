@@ -22,7 +22,9 @@ export = ({ opts }: any) => {
   try {
     const pkgInfo = getJson(`${projectRoot}/package.json`);
     const config: Config = pkgInfo.cordova.plugins[pluginId];
-    const host = config["DEV_HOST"] || process.env.DEV_HOST || ip.address();
+    const host = config["DEV_HOST"] === "0.0.0.0"
+        ? process.env.DEV_HOST || ip.address()
+        : config["DEV_HOST"];
     const url = `http://${host}:${config["DEV_PORT"]}/${config["INDEX"]}`;
 
     const template = readFileSync(resolve(projectRoot, config.TEMPLATE), { encoding: "utf8" });

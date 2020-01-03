@@ -4,7 +4,7 @@
         id="cordova-plugin-config-helper" version="0.1.1">
   <name>Config.xml Helper</name>
   <preference name="TEMPLATE" default="config.tpl.xml" />
-  <preference name="DEV_HOST" default="" />
+  <preference name="DEV_HOST" default="0.0.0.0" />
   <preference name="DEV_PORT" default="3000" />
   <preference name="INDEX" default="index.html" />
   <description>config.xml helper for cordova development</description>
