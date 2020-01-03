@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-config-helper",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "config.xml helper for cordova development",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
